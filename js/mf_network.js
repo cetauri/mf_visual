@@ -22,24 +22,24 @@
           $(xml).find("Member").each(function(idx) {
 
               var id = idx + 1;
-              var m_score = $(this).attr("score");
+              var c_score = $(this).attr("score");
               var children = $(this).clone();
               children.find("Child").each(function(i) {
               // Child 노드 추가
               // console.log(idx, i, $(this).text());
               var sub_idx = id + '.' + i;
-              data_nodes.push({id: id + '.' + i, label: $(this).text(), group : 2});
+              data_nodes.push({id: id + '.' + i, label: $(this).text(), group : 2, title : c_score});
               data_edges.push({from: id, to: sub_idx});
 
           });
 
           $(this).contents().empty(); 
           var m_text = $(this).text().trim();
-
+          var m_score = $(this).attr("score");
           // console.log(idx, m_score, m_text);
 
           //main 노드 추가
-          data_nodes.push({id: id, label: m_text, group : 1});
+          data_nodes.push({id: id, label: m_text, group : 1, title : m_score});
           data_edges.push({from: 0, to: id});
 
         });

@@ -66,7 +66,8 @@
 
           var value = $("body").data(node_id);
           if (value !== ""){
-              alert(value);
+              // alert(value);
+              window.open(window.location.pathname + "?word=" + encodeURI(value));
           }
         });
       },

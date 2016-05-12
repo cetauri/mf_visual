@@ -1,12 +1,14 @@
 <!doctype html>
 <html>
-<head>
-  <script type="text/javascript" src="public/js/application.js"></script>
-  <link href="public/css/application.min.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
+  <head>
+    <script type="text/javascript" src="public/js/application.js"></script>
+    <link href="public/css/application.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="wordNetwork"></div>
+  </body>
+</html>
 
-<div id="wordNetwork"></div>
 
 <script type="text/javascript">
   var network_options = {
@@ -28,8 +30,8 @@
     }
   };
 
-  draw_word_network('wordNetwork', "sample.xml", "get", network_options);
+  var word = getParameter("word");
+  if (word == null) word = "sample"
+ 
+  draw_word_network('wordNetwork', word + ".xml", "get", network_options);
 </script>
-
-</body>
-</html>
